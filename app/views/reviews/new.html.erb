@@ -1,0 +1,23 @@
+<h1>Add a Review</h1>
+<h2><%= @review.cigar.brand.name %> - <%= @review.cigar.style %></h2>
+
+<%= form_for(@review) do |f| %>
+    <div>
+        <%= f.label :matches %>
+        <%= f.number_field :matches, min:0, max:5 %>
+    </div>
+    <br>
+    <div>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+    </div>
+    <br>
+    <div>
+        <%= f.label :summary %>
+        <%= f.text_area :summary %>
+    </div>
+    <br>
+    <%= f.hidden_field :cigar_id %>
+
+    <%= f.submit %>
+<% end %>
