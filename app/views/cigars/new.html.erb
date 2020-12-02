@@ -1,0 +1,30 @@
+<h1>Add a Cigar</h1>
+
+<%= form_for(@cigar) do |f| %>
+    <div>
+        <%= f.label :style %>
+        <%= f.text_field :style %>
+    </div>
+    <br>
+
+    <div>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+    </div>
+
+    <p> Brand Library: </p>
+    <div>
+        <%= f.collection_select :brand_id, Brand.all, :id, :name %>
+    </div>
+
+    <p> New Brand Entry: </p>
+    <div>
+        <%= f.fields_for :brand do |br| %>
+            <%= br.label :name %>
+            <%= br.text_field :name %>
+        <% end %>
+    </div>
+    <br>
+
+    <%= f.submit %>
+<% end %>
