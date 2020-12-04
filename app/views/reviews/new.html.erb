@@ -1,4 +1,8 @@
 
+<h1>Add a Review!</h1>
+
+<%= render 'layouts/errors', locals: {object: @review} %>
+
 <%= form_for(@review) do |f| %>
     <% if params[:cigar_id] %>
         <%= f.hidden_field :cigar_id %>

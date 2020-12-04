@@ -1,5 +1,7 @@
 <h1>Add a Cigar</h1>
 
+<%= render 'layouts/errors', locals: {objecct: @cigar} %>
+
 <%= form_for(@cigar) do |f| %>
     <div>
         <%= f.label :style %>
