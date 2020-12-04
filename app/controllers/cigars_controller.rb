@@ -19,6 +19,10 @@ class CigarsController < ApplicationController
         end
     end
 
+    def show
+        @cigar = Cigar.find_by_id(params[:id])
+    end
+
     private
     
     def cigar_params
