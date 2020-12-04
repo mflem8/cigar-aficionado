@@ -1,0 +1,7 @@
+<h1>Review Library</h1>
+
+<ul>
+<% @reviews.each do |r| %>
+    <li><%= r.cigar.brand %>: <%= r.title %> - <%= r.matches %></li><br>
+<% end %>
+</ul>
