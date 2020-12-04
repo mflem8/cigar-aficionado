@@ -1,12 +1,13 @@
 
-<% if params[:cigar_id] %>
-    <h1>Add a Review for:</h1>
-    <h2><%= @review.cigar.brand.name %> - <%= @review.cigar.style %></h2>
-<% else %>
-    <h1>Create a Review:</h1>
-<% end %>
-
 <%= form_for(@review) do |f| %>
+    <% if params[:cigar_id] %>
+        <%= f.hidden_field :cigar_id %>
+    <% else %>
+        <div>
+            <%= f.label :cigar_id, "Choose a Cigar" %>
+            <%= f.collection_select :cigar_id, Cigar.all, :id, :brand_and_style, include_blank: true %>
+        </div>
+    <% end %>
     <div>
         <%= f.label :matches %>
         <%= f.number_field :matches, min:0, max:5 %>
@@ -19,10 +20,9 @@
     <br>
     <div>
         <%= f.label :summary %>
-        <%= f.text_area :summary %>
+        <%= f.text_area :summary, size: "15x15" %>
     </div>
     <br>
-    <%= f.hidden_field :cigar_id %>
 
     <%= f.submit %>
 <% end %>
