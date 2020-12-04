@@ -1,7 +1,8 @@
 <h1>My Cigar Collection</h1>
 
-<%= @cigars.each do |c| %>
+<% @cigars.each do |c| %>
     <h3><%=  c.brand.name %> - <%= c.style %></h3>
+    <%= link_to "Leave a Review!", new_cigar_review_path(c.id) %>
     <div>
         <p><%= c.description %></p>
     </div>
