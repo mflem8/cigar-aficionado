@@ -1,5 +1,10 @@
-<h1>Add a Review</h1>
-<h2><%= @review.cigar.brand.name %> - <%= @review.cigar.style %></h2>
+
+<% if params[:cigar_id] %>
+    <h1>Add a Review for:</h1>
+    <h2><%= @review.cigar.brand.name %> - <%= @review.cigar.style %></h2>
+<% else %>
+    <h1>Create a Review:</h1>
+<% end %>
 
 <%= form_for(@review) do |f| %>
     <div>
