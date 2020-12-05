@@ -28,4 +28,6 @@ class CigarsController < ApplicationController
     def cigar_params
         params.require(:cigar).permit(:style, :description, :brand_id, brand_attributes: [:name])
     end
+
+    #test 
 end
