@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   delete '/logout' => 'sessions#destroy'
 
+  get '/auth/:provider/callback' => 'sessions#create'
+
   resources :reviews
   resources :cigars do
     resources :reviews, only: [:new]
