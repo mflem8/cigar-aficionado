@@ -12,7 +12,7 @@ class CigarsController < ApplicationController
     def create
         @cigar = Cigar.new(cigar_params)
         @cigar.user_id = session[:user_id]
-        if @cigar.save!
+        if @cigar.save
             redirect_to cigar_path(@cigar)
         else
             render :new
