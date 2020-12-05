@@ -24,5 +24,9 @@ class SessionsController < ApplicationController
         end
     end
 
+    def omniauth
+        
+    end
+
     
 end
